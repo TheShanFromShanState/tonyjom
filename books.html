@@ -2,32 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Books - My Website</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Books - Tony Jom</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+    .slider {
+      max-width: 900px;
+      margin: 30px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .book-card {
+      background: white;
+      min-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .book-card img {
+      max-width: 150px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .book-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 5px 5px 0 0;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .stars span {
+      font-size: 25px;
+      cursor: pointer;
+      color: #ccc;
+    }
+    .stars span.active {
+      color: gold;
+    }
+    .reviews {
+      margin-top: 10px;
+      padding-left: 10px;
+      border-left: 3px solid #ddd;
+    }
+    .review-box {
+      margin-top: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+      margin-top: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button.submit {
+      margin-top: 5px;
+      padding: 8px 12px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.submit:hover {
+      background: darkgreen;
+    }
+    /* Slider navigation */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Books</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="books.html">Books</a>
-      <a href="photography.html">Photography</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <h1>My Books</h1>
 
-  <main>
-    <h2>My Books</h2>
-    <p>Here are some of my book projects:</p>
-    <ul>
-      <li><strong>Speak English</strong> – Daily sentences and vocabulary to improve your English.</li>
-      <li><strong>Future Book</strong> – More coming soon…</li>
-    </ul>
-  </main>
+  <div class="slider">
+    <div class="slides" id="slides">
+      <!-- Book 1 -->
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220?text=Book+1+Cover" alt="Book 1">
+        <div class="book-title">Speak English in 100 Easy Lessons</div>
+        <p>A beginner-friendly guide to improve your English quickly.</p>
+        <div>
+          <a href="https://line.me" class="btn">Buy via LINE</a>
+          <a href="https://facebook.com" class="btn">Buy via Facebook</a>
+          <a href="https://wa.me/1234567890" class="btn">Buy via WhatsApp</a>
+        </div>
+        <div class="stars" data-book="1">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="reviews" id="reviews-1"></div>
+        <div class="review-box">
+          <textarea id="review-text-1" placeholder="Write your review..."></textarea>
+          <button class="submit" onclick="submitReview(1)">Submit Review</button>
+        </div>
+      </div>
 
-  <footer>
-    <p>© 2025 Tony Jom</p>
-  </footer>
+      <!-- Book 2 -->
+      <div class="book-card">
+        <img src="https://via.placeholder.com/150x220?text=Book+2+Cover" alt="Book 2">
+        <div class="book-title">English Conversations for Travelers</div>
+        <p>Essential English sentences for traveling the world with confidence.</p>
+        <div>
+          <a href="https://line.me" class="btn">Buy via LINE</a>
+          <a href="https://facebook.com" class="btn">Buy via Facebook</a>
+          <a href="https://wa.me/1234567890" class="btn">Buy via WhatsApp</a>
+        </div>
+        <div class="stars" data-book="2">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="reviews" id="reviews-2"></div>
+        <div class="review-box">
+          <textarea id="review-text-2" placeholder="Write your review..."></textarea>
+          <button class="submit" onclick="submitReview(2)">Submit Review</button>
+        </div>
+      </div>
+    </div>
+    <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+  <script>
+    // Slider
+    let currentIndex = 0;
+    function moveSlide(direction) {
+      const slides = document.getElementById('slides');
+      const total = slides.children.length;
+      currentIndex = (currentIndex + direction + total) % total;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // Rating system
+    document.querySelectorAll('.stars').forEach(starContainer => {
+      let stars = starContainer.querySelectorAll('span');
+      stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+          stars.forEach((s, i) => {
+            s.classList.toggle('active', i <= index);
+          });
+        });
+      });
+    });
+
+    // Review system
+    function submitReview(bookId) {
+      const textArea = document.getElementById('review-text-' + bookId);
+      const reviewText = textArea.value.trim();
+      if (reviewText !== "") {
+        const reviewDiv = document.getElementById('reviews-' + bookId);
+        const p = document.createElement('p');
+        p.textContent = reviewText;
+        reviewDiv.appendChild(p);
+        textArea.value = "";
+      }
+    }
+  </script>
 </body>
 </html>
