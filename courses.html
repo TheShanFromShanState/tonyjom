@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | TonyJom</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') 
+        no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    /* ===== Search Bar ===== */
+    .search-bar {
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      position: relative;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .course-big img {
+      height: 380px; /* taller image for Podcasting */
+    }
+
+    .course-content {
+      padding: 20px;
+    }
+
+    .course-content h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .course-content p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .course-content a {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #000;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .course-content a:hover {
+      background: #ff6600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      margin-top: 40px;
+    }
+
+    /* Make Podcasting card bigger */
+    .course-big {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 900px) {
+      .course-big {
+        grid-column: span 1; /* Keep responsive on smaller screens */
+      }
+      .course-big img {
+        height: 200px; /* Adjust height on smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TonyJom</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="courses.html">Courses</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Our Courses</h2>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="courseSearch" placeholder="Search courses...">
+    </div>
+
+    <div class="courses" id="coursesContainer">
+      <!-- English Learning -->
+      <div class="course-card">
+        <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank">
+          <img src="https://img.youtube.com/vi/3JZ_D3ELwOQ/maxresdefault.jpg" alt="English Learning Thumbnail">
+        </a>
+        <div class="course-content">
+          <h3>English Learning</h3>
+          <p>Improve your English with daily sentences, vocabulary, and pronunciation practice.</p>
+          <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <!-- Filmmaking -->
+      <div class="course-card">
+        <a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ" target="_blank">
+          <img src="https://img.youtube.com/vi/aqz-KE-bpKQ/maxresdefault.jpg" alt="Filmmaking Thumbnail">
+        </a>
+        <div class="course-content">
+          <h3>Filmmaking</h3>
+          <p>Master camera work, lighting, audio, and storytelling for professional video projects.</p>
+          <a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <!-- Podcasting -->
+      <div class="course-card course-big">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+          <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Podcasting Thumbnail">
+        </a>
+        <div class="course-content">
+          <h3>Podcasting</h3>
+          <p>Learn to create, edit, and publish your own podcast to share your voice with the world.</p>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 TonyJom. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ===== Search functionality =====
+    const courseSearch = document.getElementById('courseSearch');
+    const coursesContainer = document.getElementById('coursesContainer');
+    const courseCards = coursesContainer.querySelectorAll('.course-card');
+
+    courseSearch.addEventListener('input', () => {
+      const query = courseSearch.value.toLowerCase();
+      courseCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        if(title.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

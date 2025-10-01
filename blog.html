@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | TonyJom</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background Slideshow Layer */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeSlide 36s infinite;
+    }
+
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 12s; }
+    .slideshow img:nth-child(3) { animation-delay: 24s; }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; }
+      8% { opacity: 1; }
+      25% { opacity: 1; }
+      33% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Navigation */
+    nav {
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+    }
+
+    /* Header */
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      letter-spacing: 1px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      margin: 15px auto;
+      text-align: center;
+    }
+    .search-bar input {
+      width: 60%;
+      padding: 10px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 1em;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ff9800;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .search-bar button:hover {
+      background: #e68900;
+    }
+
+    /* Blog Section */
+    section.blog {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-post {
+      background: rgba(0,0,0,0.65);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+    }
+
+    .blog-post img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .blog-post h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+
+    .blog-post p {
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #ff9800;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .read-more:hover {
+      background: #e68900;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.8);
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background slideshow -->
+  <div class="slideshow">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80" alt="Nature 1">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80" alt="Nature 2">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" alt="Nature 3">
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="courses.html">Courses</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Blog</h1>
+    <div class="search-bar">
+      <input type="text" id="blogSearch" placeholder="Search blog posts...">
+    </div>
+  </header>
+
+  <!-- Blog Section -->
+  <section class="blog" id="blogContainer">
+    <div class="blog-post">
+      <img src="https://source.unsplash.com/400x250/?forest" alt="Blog 1">
+      <h2>Exploring the Forest</h2>
+      <p>Discover the beauty and calmness of deep green forests, and how they bring peace to our lives.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="blog-post">
+      <img src="https://source.unsplash.com/400x250/?mountain" alt="Blog 2">
+      <h2>Climbing Adventures</h2>
+      <p>Learn how mountain climbing can challenge your body and soul while rewarding you with stunning views.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="blog-post">
+      <img src="https://source.unsplash.com/400x250/?river" alt="Blog 3">
+      <h2>Life by the River</h2>
+      <p>The gentle flow of rivers has always been a source of inspiration and relaxation for many cultures.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+    <div class="blog-post">
+      <img src="https://source.unsplash.com/400x250/?beach" alt="Blog 4">
+      <h2>Peaceful Beaches</h2>
+      <p>Find out why walking on sandy beaches can refresh your mind and give you a sense of freedom.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 TonyJom. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // ===== Blog Search =====
+    const blogSearch = document.getElementById('blogSearch');
+    const blogContainer = document.getElementById('blogContainer');
+    const blogPosts = blogContainer.querySelectorAll('.blog-post');
+
+    blogSearch.addEventListener('input', () => {
+      const query = blogSearch.value.toLowerCase();
+      blogPosts.forEach(post => {
+        const title = post.querySelector('h2').textContent.toLowerCase();
+        if(title.includes(query)) {
+          post.style.display = '';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+    
+
+

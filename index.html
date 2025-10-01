@@ -2,28 +2,256 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home - My Website</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TonyJom | Books & Courses</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f8f8f8; color: #333; }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 10%;
+      background: #000; /* solid black */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+    nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; }
+    nav a:hover { color: #ffd700; }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+      transition: background-image 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+    .hero h1 { font-size: 3rem; font-weight: bold; margin-bottom: 1rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+    .hero p { font-size: 1.3rem; margin-bottom: 2rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
+    .hero a {
+      padding: 12px 30px;
+      background: #ffd700;
+      color: #333;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .hero a:hover { background: #333; color: #ffd700; }
+
+    /* Text animation */
+    #hero-title, #hero-subtitle, #hero-button { transition: opacity 0.5s ease-in-out; }
+
+    /* Cards Section */
+    .section { padding: 80px 10%; text-align: center; }
+    .section h2 { font-size: 2rem; margin-bottom: 2rem; color: #222; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { margin: 15px; font-size: 1.2rem; }
+    .card p { margin: 0 15px 20px; font-size: 0.95rem; color: #555; }
+    .card a {
+      display: inline-block;
+      margin: 0 0 20px;
+      padding: 10px 20px;
+      background: #ffd700;
+      color: #333;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .card a:hover { background: #333; color: #ffd700; }
+
+    /* Footer */
+    footer {
+      background-color:#f0f4f7;
+      padding:20px 50px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-family:sans-serif;
+    }
+    footer a { margin:0 10px; text-decoration:none; color:black; }
+    .social-icon {
+      background:black;
+      color:white;
+      border-radius:50%;
+      width:30px;
+      height:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Website</h1>
-    <nav>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html">TonyJom</a></div>
+    <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
       <a href="books.html">Books</a>
-      <a href="photography.html">Photography</a>
+      <a href="courses.html">Courses</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
-  <main>
-    <h2>Hello, I’m Tony Jom</h2>
-    <p>This is my personal website where I share my journey, books, and photography.</p>
-  </main>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1 id="hero-title">Books, Filmmaking & Podcasts</h1>
+    <p id="hero-subtitle">Learn English, create stories, and share your voice with the world.</p>
+    <a id="hero-button" href="books.html">Explore Books</a>
+  </section>
 
+  <!-- Cards Section -->
+<section class="section">
+  <h2>Start Your Journey</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80" alt="Books">
+      <h3>Books</h3>
+      <p>Improve your English and communication skills with practical and easy-to-read books.</p>
+      <a href="books.html">See Books</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1590608897129-79da98d159d3?auto=format&fit=crop&w=800&q=80" alt="Filmmaking">
+      <h3>Filmmaking</h3>
+      <p>Learn storytelling through video production and hands-on creative lessons.</p>
+      <a href="courses.html">Learn More</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585079542156-f0abf6aa9cdb?auto=format&fit=crop&w=800&q=80" alt="Podcasting">
+      <h3>Podcasting</h3>
+      <p>Build your podcast, develop your voice, and share your stories worldwide.</p>
+      <a href="courses.html">Join Now</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Blog">
+      <h3>Blog</h3>
+      <p>Read inspiring stories, tips on learning English, filmmaking, and podcasting.</p>
+      <a href="blog.html">Read Blog</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Tony Jom</p>
+    <div style="font-style:italic; font-weight:bold; font-size:18px;">TonyJom</div>
+    <div>
+      <a href="#">HOME</a>| 
+      <a href="#">BOOKS</a>| 
+      <a href="#">COURSES</a>| 
+      <a href="#">BLOG</a>| 
+      <a href="#">CONTACT</a>| 
+      <a href="#">ABOUT</a>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <a href="#" class="social-icon">P</a>
+      <a href="#" class="social-icon">I</a>
+      <a href="#" class="social-icon">F</a>
+      <a href="#" class="social-icon">@</a>
+    </div>
   </footer>
+
+  <!-- Hero Slideshow and Text Animation -->
+  <script>
+    const hero = document.getElementById('hero');
+    const heroTitle = document.getElementById('hero-title');
+    const heroSubtitle = document.getElementById('hero-subtitle');
+    const heroButton = document.getElementById('hero-button');
+
+    const slides = [
+      {
+        image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80', 
+        title: 'Improve Your English',
+        subtitle: 'Read books and learn communication skills.',
+        buttonText: 'Explore Books',
+        buttonLink: 'books.html'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1600&q=80',
+        title: 'Discover Knowledge',
+        subtitle: 'Dive into the world of libraries and learning.',
+        buttonText: 'Visit Library',
+        buttonLink: 'books.html'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1588776814546-5f6a03e94aa4?auto=format&fit=crop&w=1600&q=80',
+        title: 'Start Podcasting',
+        subtitle: 'Share your voice and stories worldwide.',
+        buttonText: 'Join Podcast',
+        buttonLink: 'courses.html'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80',
+        title: 'Learn Filmmaking',
+        subtitle: 'Create videos and tell amazing stories.',
+        buttonText: 'Learn Filmmaking',
+        buttonLink: 'courses.html'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80',
+        title: 'Relax with Nature',
+        subtitle: 'Get inspired and feel refreshed with beautiful landscapes.',
+        buttonText: 'Explore Nature',
+        buttonLink: '#'
+      }
+    ];
+
+    let index = 0;
+
+    function changeSlide() {
+      const slide = slides[index];
+      hero.style.backgroundImage = `url('${slide.image}')`;
+
+      // Fade animation
+      heroTitle.style.opacity = 0;
+      heroSubtitle.style.opacity = 0;
+      heroButton.style.opacity = 0;
+
+      setTimeout(() => {
+        heroTitle.textContent = slide.title;
+        heroSubtitle.textContent = slide.subtitle;
+        heroButton.textContent = slide.buttonText;
+        heroButton.href = slide.buttonLink;
+
+        heroTitle.style.opacity = 1;
+        heroSubtitle.style.opacity = 1;
+        heroButton.style.opacity = 1;
+      }, 500);
+
+      index = (index + 1) % slides.length;
+    }
+
+    changeSlide();
+    setInterval(changeSlide, 5000);
+  </script>
+
 </body>
 </html>
+
+
+
+

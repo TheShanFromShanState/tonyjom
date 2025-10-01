@@ -1,29 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About - My Website</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | TonyJom</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Background Slideshow Layer */
+  .slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeSlide 36s infinite;
+  }
+
+  .slideshow img:nth-child(1) { animation-delay: 0s; }
+  .slideshow img:nth-child(2) { animation-delay: 12s; }
+  .slideshow img:nth-child(3) { animation-delay: 24s; }
+
+  @keyframes fadeSlide {
+    0% { opacity: 0; }
+    8% { opacity: 1; }
+    25% { opacity: 1; }
+    33% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  /* Navigation */
+  nav {
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: #ff9800; }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    background: rgba(0,0,0,0.4); /* slight overlay for clarity */
+    margin-bottom: 30px;
+  }
+
+  .hero img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff9800;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+    color: #ffd480;
+  }
+
+  /* About Content */
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    background: rgba(0,0,0,0.6);
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  .about-section { margin-bottom: 30px; }
+
+  .about-section h2 {
+    color: #ff9800;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #ff9800;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .about-section p { font-size: 1.05em; }
+
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill {
+    background: #ff9800;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  /* Footer */
+  footer {
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  @media(max-width:768px){
+    .skills { justify-content: center; }
+    .hero img { width: 140px; height: 140px; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>About Me</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="books.html">Books</a>
-      <a href="photography.html">Photography</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <h2>Who am I?</h2>
-    <p>My name is Tony Jom. I’m passionate about books, learning, photography, and content creation. This website is my space to share what I do.</p>
-  </main>
+  <!-- Background slideshow -->
+  <div class="slideshow">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80" alt="Nature 1">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80" alt="Nature 2">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" alt="Nature 3">
+  </div>
 
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="courses.html">Courses</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://source.unsplash.com/300x300/?books,portrait" alt="Tony Jom">
+    <h1>Tony Jom</h1>
+    <p>Book Seller | Curator | Passionate About Sharing Knowledge</p>
+  </section>
+
+  <!-- About Content -->
+  <div class="about-container">
+    <div class="about-section">
+      <h2>Who I Am</h2>
+      <p>Hello! My name is Tony Jom. I run a bookstore and online shop where I carefully select books that inspire and educate readers of all ages. I love helping people discover books they will cherish and learn from.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>My Mission</h2>
+      <p>My mission is to make reading accessible, enjoyable, and meaningful for everyone. I want to connect readers with stories and knowledge that spark curiosity and creativity.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Skills & Expertise</h2>
+      <div class="skills">
+        <div class="skill">Book Curation</div>
+        <div class="skill">Online Sales</div>
+        <div class="skill">Content Creation</div>
+        <div class="skill">Photography</div>
+        <div class="skill">Customer Service</div>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>My Journey</h2>
+      <p>I started selling books online to share my love of reading with more people. Over time, I’ve learned how to curate collections, photograph books, and create engaging content to showcase each book’s value. My journey is driven by a love for stories and the joy of helping others discover them.</p>
+    </div>
+
+    <div class="about-section">
+      <h2>Fun Facts</h2>
+      <p>When I’m not selling books, I enjoy exploring new genres, taking photos of my favorite books, and discovering inspiring stories from around the world. Books are not just products—they are experiences to share.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Tony Jom</p>
+    <p>&copy; 2025 TonyJom. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
+
+
